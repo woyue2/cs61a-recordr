@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0205_Note_cs61a</title>
+    <link rel="stylesheet" href="css/baisc.css">
+    <link rel="stylesheet" href="css/nextImportant.css">
+    <style>
+        .close{
+            display: none;
+        }
+        .open{
+            display: block;
+        }
+    </style>
+    <script>
+        function myFunction() {
+            var element = document.getElementById("abstraction");
+            element.classList.toggle("open");
+        }
+    </script>
+</head>
+<body>
+    <h1>2023年2月5日开始</h1>
+    <div class="main">
+        <h3>一些东西</h3>
+        <!-- #region -->
+        <ol>
+            <button onclick="myFunction()">展开</button>
+            <li>abstraction如同汽车，有blueprint,不会这个也可以开车<br>
+                <div id="abstraction" class="close">
+                <img src="images/QQ截图20230205163023.png" alt="">
+                <br>函数可以保留2/3的除法，python会直接得出实数，不保留numerator和denominator
+                <img src="images/QQ截图20230205162238.png" alt="">
+                <br>违反
+                <img src="images/QQ截图20230205163449.png" alt="">
+                <img src="images/QQ截图20230205163600.png" alt="">
+                <h4>正确例子</h4>
+                <img src="images/QQ截图20230205165607.png" alt="">
+                <img src="images/QQ截图20230205165716.png" alt="">
+                <br><p>简洁与否</p>
+                <img src="images/QQ截图20230205165902.png" alt="">
+            </div>
+            </li>
+        </ol>
+        <button onclick="myFunction()">折叠</button>
+        <ol>
+            <li><h4>list and dict 可改,tuple and func 不可改</h4>
+                The process of changing an object's state is called mutation. Examples of mutable objects include lists and dictionaries. Examples of objects that are not mutable include tuples and functions
+            </li>
+            <li>
+                The only method here that has a return value is pop! All of the other methods return None.
+            </li>
+            <li>
+                dict 无序；Dictionaries are unordered sets of key-value pairs. Keys can only be immutable types (e.g. strings, numbers, tuples)
+                <img src="images/QQ截图20230205174236.png" alt="">
+                unlike lists, keys must be unique; that is, a key can appear only once in a dictionary.
+                <img src="images/QQ截图20230205174412.png" alt="">
+                Notice:adding and for updating a key-value pair are identical
+                <img src="images/QQ截图20230205174607.png" alt="">
+
+            </li>
+            <li>
+                <h4>identity vs equality</h4>
+                <img src="images/QQ截图20230205175714.png" alt="">
+            </li>
+            <li>
+                <h4>Data abstraction</h4>
+                <img src="images/QQ截图20230205175822.png" alt="">
+            </li>
+            <li>
+                <img src="images/QQ截图20230205181051.png" alt="">
+                lst.remove(x) 这个x是value 不是index
+            </li>
+            <li>dict[key] == value</li>
+        </ol>
+        <!-- #endregion -->
+        <h3>链接</h3>
+        <!-- #region -->
+        <ul>
+            <li></li>
+        </ul>
+        <!-- #endregion -->
+        <h3>一些语句，看了知道，不看死想也想不到</h3>
+        <!-- #region -->
+        <ul>
+            <li></li>
+        </ul>
+        <!-- #endregion -->
+    </div>
+    <h1>2023年2月5日开始</h1>  
+</body>
+</html>
