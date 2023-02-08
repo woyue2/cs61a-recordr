@@ -36,7 +36,7 @@ def choose(paragraphs, select, k):
     for i in range(len(paragraphs)):
         if select(paragraphs[i]) == True:
             select_list.append(paragraphs[i])
-            print(select_list)
+            # print(select_list)
         i += 1
     return select_list[k] if k <= (len(select_list)-1) else ''
     # END PROBLEM 1
@@ -61,14 +61,14 @@ def about(topic):
     def helper(p):
         if bool(topic) == False:
             return False
-        elif split(lower(remove_punctuation(p)))[-1] in topic:
-            return True
         else:
-            p = split(lower(remove_punctuation(p))).pop()
-            
-            return helper(p)
+            i = 0
+            for i in range(len(topic)):
+                if topic[i] in split(lower(remove_punctuation(p))):
+                    return True
+                i += 1
+        return False
     return helper
-    # return lambda p :split(lower(remove_punctuation(p)))
     # END PROBLEM 2
 
 
@@ -80,25 +80,40 @@ def accuracy(typed, reference):
         typed: a string that may contain typos
         reference: a string without errors
 
-    >>> accuracy('Cute Dog!', 'Cute Dog.')
+    >>> accuracy('Cute Dog!', 'Cute Dog.')#accuracy("cats.", "cats")-->0.0
     50.0
     >>> accuracy('A Cute Dog!', 'Cute Dog.')
     0.0
-    >>> accuracy('cute Dog.', 'Cute Dog.')
+    >>> accuracy('cute Dog.', 'Cute Dog.')#区分大小写，一个单词只有大小写不一致也是错
     50.0
     >>> accuracy('Cute Dog. I say!', 'Cute Dog.')
     50.0
     >>> accuracy('Cute', 'Cute Dog.')
     100.0
-    >>> accuracy('', 'Cute Dog.')
+    >>> accuracy('', 'Cute Dog.')#任意一方为空，另一方未非空，都是0.0
     0.0
     >>> accuracy('', '')
     100.0
+    >>> accuracy("a b c d", "a d")
+    25.0
     """
     typed_words = split(typed)
     reference_words = split(reference)
     # BEGIN PROBLEM 3
     "*** YOUR CODE HERE ***"
+    if bool(typed) == False :
+        if bool(reference) == False:
+            return 100.0
+        else:
+            return 0.0
+    else:
+        counter,i = 0,0
+        for i in range(len(typed_words)):
+            if i < len(reference_words):
+                if typed_words[i] == reference_words[i]:
+                    counter += 1
+                i += 1
+    return counter *100 / len(typed_words)
     # END PROBLEM 3
 
 
@@ -109,7 +124,7 @@ def wpm(typed, elapsed):
         typed: an entered string
         elapsed: an amount of time in seconds
 
-    >>> wpm('hello friend hello buddy hello', 15)
+    >>> wpm('hello friend hello buddy hello', 15)# (type / 5)/(elapsed / 60)
     24.0
     >>> wpm('0123456789',60)
     2.0
@@ -117,6 +132,7 @@ def wpm(typed, elapsed):
     assert elapsed > 0, 'Elapsed time must be positive'
     # BEGIN PROBLEM 4
     "*** YOUR CODE HERE ***"
+    return (len(typed)/5)/(elapsed / 60)
     # END PROBLEM 4
 
 
@@ -142,8 +158,41 @@ def autocorrect(typed_word, word_list, diff_function, limit):
     >>> autocorrect("tosting", ["testing", "asking", "fasting"], first_diff, 10)
     'testing'
     """
+    #autocorrect("inside", ["idea", "insider"], first_diff, 0.5)-->'idea'不是很懂、
+    # "wor", ["worry", "car", "part"] 选car 不是很懂‘
     # BEGIN PROBLEM 5
     "*** YOUR CODE HERE ***"
+    #改
+    i,j,aratio,index,counter,wrong = 0,0,0,0,0,0
+    
+    for i in range(len(word_list)):
+        #constructor
+        lst_type = list(typed_word)
+        lst_pre = list(word_list[i])
+        if len(lst_type) >= len(lst_pre):
+            for j in range(len(lst_type)):
+                if lst_pre[j] != lst_type[j]:
+                    counter =+ 1
+                j += 1
+                if wrong < counter / len(lst_pre):
+                    wrong,index = wrong + counter / len(lst_pre),j
+        else:
+            for j in range(len(lst_pre)):
+                if lst_pre[j] != lst_type[j]:
+                    counter =+ 1
+                j += 1
+                if wrong < counter / len(lst_pre):
+                    wrong,index = wrong + counter / len(lst_pre),j
+        #procesion
+        if typed_word == word_list[i]:
+            return typed_word
+        else:
+            if diff_function(typed_word,word_list[i],limit) > limit :
+                return typed_word
+        i += 1
+    print(index)
+    return word_list[index] 
+    
     # END PROBLEM 5
 
 
@@ -169,6 +218,7 @@ def sphinx_swaps(start, goal, limit):
     >>> sphinx_swaps("rose", "hello", big_limit)   # Substitute: r->h, o->e, s->l, e->l, length difference of 1.
     5
     """
+    
     # BEGIN PROBLEM 6
     assert False, 'Remove this line'
     # END PROBLEM 6
