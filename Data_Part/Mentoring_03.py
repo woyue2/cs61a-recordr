@@ -55,9 +55,15 @@ def is_sorted(n):
     >>> is_sorted(9087654321)
     False
     """
-    #selector
-    def helper(i,n):
-        lastone = n % 10
-        lasttwo = (n // 10) % 10
-        return helper(i,n // 10)
-    return helper()
+    # selector
+    last1 = n % 10
+    last2 = (n // 10) % 10
+    # constructor    
+    if len(str(n)) == 1:
+        return True
+    elif  last1 > last2:
+        return False 
+    else:
+        return is_sorted(n//10)
+    
+    
