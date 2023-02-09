@@ -159,62 +159,37 @@ def autocorrect(typed_word, word_list, diff_function, limit):
     'testing'
     """
     #autocorrect("inside", ["idea", "insider"], first_diff, 0.5)-->'idea'不是很懂、
-    # "wor", ["worry", "car", "part"] 选car 不是很懂 不用懂……
+    # "wor", ["worry", "car", "part"] 选car 不是很懂
     #         2/5=0.4，2/3=0.67,3/4=0.75 
     # BEGIN PROBLEM 5
-    "*** YOUR CODE HERE ***"
-    if typed_word in word_list:
-        return typed_word
-    else:
-        result = [diff_function(typed_word, word,limit) for word in word_list]#这样iterate就不用写for来遍历了
-        #上面这一句省了不知道多少代码
-        min_diff = min(result)
-        if min_diff > limit:
-            return typed_word
-        else:
-            return word_list[result.index(min_diff)]
-    """我的傻鸟代码，还做不出来
+    "*** YOUR CODE HERE ***" 
     pre_counter = 1000000000000
     lst_diff = []
-    len_diff = []
     for i in range(len(word_list)):    
-        if typed_word == word_list[i]:#一样
-            return typed_word    
-        lst_diff.append(diff_function(typed_word,word_list[i],limit))#构建个体差异值list        
-        lst_type , lst_pre = list(typed_word),list(word_list[i])#[拆分单词成一个个字母，是list]
-        len_diff.append(abs(len(lst_type)-len(lst_pre)))#长度差异构建
-        counter = abs(len(lst_pre)-len(lst_type))
-        for j in range(min(len(lst_pre),len(lst_type))):
-            if lst_type[j] != lst_pre[j]:
-                counter += 1
-        #以上计算出到底相差多少位        
-        if counter < pre_counter:#位数少，则替换
-            pre_counter = counter
-            pre_len = len(lst_pre)
-            index = i 
-        if pre_counter == counter :#刚好位数相等，要看pre的长度，越短越好，也体现为比例
-           if len(lst_pre) < pre_len:
-                index = i
-        #以上确定 index的值
-    lst_diff2 = []#构建所有差异值组成的数列
-    for i in range(len(lst_diff)):
-        lst_diff2.append(lst_diff[i]-limit)
-        #以上构建所有差异值组成的数列 完成
-    if counter ==0 :
-        return word_list[lst_diff.index(min(lst_diff))]
-    for j in range(len(lst_diff2)):
-        if lst_diff2[j] < 0:#diff< limit
-            for i in range(len(lst_diff)):#这个for是为了遍历替换
+        #procesion
+        if typed_word != word_list[i] and diff_function(typed_word,word_list[i],limit) <= limit :        
+            #一样
+            lst_diff.append(diff_function(typed_word,word_list[i],limit))
+            # 
+            lst_type , lst_pre = list(typed_word),list(word_list[i])#[一个个字母]
+            counter = abs(len(lst_pre)-len(lst_type))
+            for j in range(min(len(lst_pre),len(lst_type))):
+                if lst_type[j] != lst_pre[j]:
+                    counter += 1
+            #以上计算出到底相差多少位        
+            if counter < pre_counter:#位数少，则替换
+                pre_counter = counter
+                pre_len = len(lst_pre)
+                index = i 
+            if pre_counter == counter :#刚好位数相等，要看pre的长度，越短越好，也体现为比例
+               if len(lst_pre) < pre_len:
+                    index = i
+            for i in range(len(lst_diff)):
                 if lst_diff[i] == lst_diff[index]:
-                    index = i#如果相同差异，则第一个出现的
+                    index = i
                     return word_list[index]
-        #以上是按错误率算的，并且是如果相同差异，则第一个出现的
-        elif all(lst_diff2) == False:#diff = limit
-            # return(len_diff.index((min(len_diff))))
-            return (word_list[(len_diff.index((min(len_diff))))])
-        else:#就是diff > limit
-            return typed_word
-        #以上所有差异值>0，则输出typed_word；有一个<0，即满足其他可能   """    
+            return word_list[index] 
+    return typed_word
     # END PROBLEM 5
 
 
@@ -239,14 +214,10 @@ def sphinx_swaps(start, goal, limit):
     5
     >>> sphinx_swaps("rose", "hello", big_limit)   # Substitute: r->h, o->e, s->l, e->l, length difference of 1.
     5
-    Important: You may not use while, for, or list comprehensions in your implementation. Use recursion.
     """
     
     # BEGIN PROBLEM 6
     assert False, 'Remove this line'
-
-    return sum(list(start) != list(goal) for _ in range(min(len(start),len(goal))) ) \
-        + abs(len(start)-len(goal))
     # END PROBLEM 6
 
 

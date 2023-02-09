@@ -1,14 +1,19 @@
 from cats import *
 from cats import autocorrect, lines_from_file
-# abs_diff = lambda w1, w2, limit: abs(len(w2) - len(w1))
-# r = autocorrect("cul", ["culture", "cult", "cultivate"], abs_diff, 10)
-first_diff = lambda w1, w2, limit: 1 if w1[0] != w2[0] else 0
-r = autocorrect("wrod", ["word", "rod"], first_diff, 1)
-'rod'
 
+from cats import autocorrect, lines_from_file
+r = autocorrect('testator', ['overrude' , 'toxicum'], lambda x, y, \
+lim: min(lim + 1, abs(len(x) - len(y))), 8)
+#                               8/8          7/8                    
+# autocorrect('testator', ['impercipient', 'overrude', 'hyperingenuity', 'piligerous', 'molybdocolic', 'toxicum'], 
+# lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 8)
+'toxicum'
 print(r)
+# Error: expected
+#     'overrude'
+# but got
+#     'toxicum'
 
-# a = ['adfd']
-# a = list(a)#-->['adfd']
-# a = list(a[0])#-->['a', 'd', 'f', 'd']
-# print(a)
+
+qc=[r** 2 for r in range(4)]
+print(qc)
