@@ -239,18 +239,51 @@ def sphinx_swaps(start, goal, limit):
     5
     >>> sphinx_swaps("rose", "hello", big_limit)   # Substitute: r->h, o->e, s->l, e->l, length difference of 1.
     5
-    Important: You may not use while, for, or list comprehensions in your implementation. Use recursion.
-    """
-    
+    """   
+    #Important: You may not use while, for, or list comprehensions in your implementation. Use recursion.
     # BEGIN PROBLEM 6
-    assert False, 'Remove this line'
-
-    return sum(list(start) != list(goal) for _ in range(min(len(start),len(goal))) ) \
-        + abs(len(start)-len(goal))
+    "*** YOUR CODE HERE ***"
+    """我的傻鸟代码，还做不出来
+    if starct =='' and goal=='':
+        return 0
+    elif start =='' or goal == '':
+        return 1 
+    else:
+        if start[0] == goal[0]:
+            lst_l =list(start)
+            lst_r =list(goal)
+            lst_l.pop(0)
+            lst_r.pop(0)
+            start = ''.join(lst_l)
+            goal = ''.join(lst_r)
+            return 0 + sphinx_swaps(start, goal, limit)
+        else:
+            lst_l =list(start)
+            lst_r =list(goal)
+            lst_l.pop(0)
+            lst_r.pop(0)
+            start = ''.join(lst_l)
+            goal = ''.join(lst_r)
+            return 1 + sphinx_swaps(start, goal, limit)
+    #     return
+    # return sum(list(start)[i] != list(goal)[i] for i in range(min(len(start),len(goal))) ) + abs(len(start)-len(goal))
+    """
+    def helper(changed,typed,referenced,limit):
+        if changed > limit:
+            return changed
+        elif len(typed) == 0:
+            return changed + len(referenced)
+        elif len(referenced) == 0:
+            return changed + len(typed)
+        elif referenced[0] == typed[0]:
+            return helper(changed,typed[1:],referenced[1:],limit)
+        else:
+            return helper(changed+1,typed[1:],referenced[1:],limit)
+    return helper(0,start,goal,limit)
     # END PROBLEM 6
 
 
-def minimum_mewtations(start, goal, limit):
+def minimum_mewtations(start, goal, limit):#完全想不出来，我是傻逼
     """A diff function that computes the edit distance from START to GOAL.
     This function takes in a string START, a string GOAL, and a number LIMIT.
 
@@ -267,25 +300,18 @@ def minimum_mewtations(start, goal, limit):
     >>> minimum_mewtations("ckiteus", "kittens", big_limit) # ckiteus -> kiteus -> kitteus -> kittens
     3
     """
-    assert False, 'Remove this line'
-
-    if ______________:  # Fill in the condition
-        # BEGIN
-        "*** YOUR CODE HERE ***"
-        # END
-
-    elif ___________:  # Feel free to remove or add additional cases
-        # BEGIN
-        "*** YOUR CODE HERE ***"
-        # END
-
-    else:
-        add = ...  # Fill in these lines
-        remove = ...
-        substitute = ...
-        # BEGIN
-        "*** YOUR CODE HERE ***"
-        # END
+    def myfunc(s, g, ans):#s-->select g-->given 
+            if ans > limit:
+                return ans + 1
+            if s == '':
+                return ans + len(g)
+            if g == '':
+                return ans + len(s)
+            if s[0] == g[0]:
+                return myfunc(s[1:], g[1:], ans)
+            else:
+                return min(myfunc(s[1:], g, ans + 1), myfunc(g[0] + s[0:], g, ans + 1), myfunc(s[1:], g[1:], ans + 1))
+    return myfunc(start, goal, 0)
 
 
 def final_diff(start, goal, limit):

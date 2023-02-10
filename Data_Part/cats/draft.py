@@ -1,19 +1,11 @@
-from cats import *
-from cats import autocorrect, lines_from_file
-
-from cats import autocorrect, lines_from_file
-r = autocorrect('testator', ['overrude' , 'toxicum'], lambda x, y, \
-lim: min(lim + 1, abs(len(x) - len(y))), 8)
-#                               8/8          7/8                    
-# autocorrect('testator', ['impercipient', 'overrude', 'hyperingenuity', 'piligerous', 'molybdocolic', 'toxicum'], 
-# lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 8)
-'toxicum'
-print(r)
-# Error: expected
-#     'overrude'
-# but got
-#     'toxicum'
+a = "cats"
+b = "scat"
+ # cats --add 's'--> scats --del 's'-> scat
+lsta = list(a)#['c', 'a', 't', 's'] 
+lstb = list(b)#['s', 'c', 'a', 't']
+#lsta insert lstb[0],del lsta [-1]
+print(lsta,lstb)
 
 
-qc=[r** 2 for r in range(4)]
-print(qc)
+# cats -> scats
+#找一样的？
