@@ -353,6 +353,17 @@ def report_progress(sofar, prompt, user_id, upload):
     """
     # BEGIN PROBLEM 8
     "*** YOUR CODE HERE ***"
+    # counter = sum(sofar[i] != prompt[i] for i in range(min(len(sofar),len(prompt)))) + abs(len(sofar)-len(prompt))
+    # rate = round((1 - counter / len(prompt)),1)
+    counter = 0 
+    for i in range(min(len(sofar),len(prompt))):
+        if sofar[i] == prompt[i]:
+            counter += 1
+        else:
+            break
+    rate = counter / len(prompt)
+    upload ({'id':user_id,'progress':rate})
+    return rate
     # END PROBLEM 8
 
 
@@ -375,12 +386,25 @@ def time_per_word(words, times_per_player):
     """
     # BEGIN PROBLEM 9
     "*** YOUR CODE HERE ***"
+    # times_diff constructor
+    times_diff = []
+    for i in range(len(times_per_player)):
+        j = 0
+        new =[]
+        for j in range(0,(len(times_per_player[j]))-1):
+            diff = times_per_player[i][j+1] - times_per_player[i][j]
+            new.append(diff)
+        times_diff.append(new)
+    # times_diff constructor end
+    match = {"words":words,"times":times_diff}
+    return match
+    # return dictionary
     # END PROBLEM 9
 
 
 def fastest_words(match):
     """Return a list of lists of which words each player typed fastest.
-
+    #calling fastest_words on [player_0, player_1] should not mutate player_0 or player_1.
     Arguments:
         match: a match dictionary as returned by time_per_word.
 
@@ -392,13 +416,33 @@ def fastest_words(match):
     [5, 1, 3]
     >>> p1
     [4, 1, 6]
-    """
+    """#match是一个dictionary，是上面部分函数写传递出来的
     player_indices = range(len(match["times"]))  # contains an *index* for each player
     word_indices = range(len(match["words"]))    # contains an *index* for each word
+    #以上是在调用dict的关键字
     # BEGIN PROBLEM 10
     "*** YOUR CODE HERE ***"
+    r = []
+    for p in player_indices:
+        r.append([])#([[],[],[]]) 内有i个分组
+    # print('玩家有',r,'个')     
+    for w in word_indices:
+        # print('词语第',w,'个是',match["words"][w])
+        min = 10000000000       
+        for p in player_indices:
+            store = match["times"][p]
+            # print(store)
+            compare = store[w]
+            # print(compare)             
+            if min > compare:
+                min = compare
+                winplayerindex = p
+        # print('index',winplayerindex)
+        r[winplayerindex].insert(w,match["words"][w])
+    return r
+    # return r
+    # a < b ,a 的 标签存入
     # END PROBLEM 10
-
 
 def match(words, times):
     """A dictionary containing all words typed and their times.

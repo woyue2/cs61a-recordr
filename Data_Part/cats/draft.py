@@ -1,11 +1,5 @@
-a = "cats"
-b = "scat"
- # cats --add 's'--> scats --del 's'-> scat
-lsta = list(a)#['c', 'a', 't', 's'] 
-lstb = list(b)#['s', 'c', 'a', 't']
-#lsta insert lstb[0],del lsta [-1]
-print(lsta,lstb)
-
-
-# cats -> scats
-#找一样的？
+from cats import match, fastest_words
+p0 = [2, 2, 3]
+p1 = [6, 1, 2]
+r = fastest_words(match(['What', 'great', 'luck'], [p0, p1]))
+print(r)
