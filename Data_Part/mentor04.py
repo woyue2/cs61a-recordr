@@ -1,0 +1,1 @@
+tree(9,[tree(2),tree(4,[tree(1)]),tree(4,[tree(2),tree(3)])])
