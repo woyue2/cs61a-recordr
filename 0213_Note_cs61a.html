@@ -7,27 +7,105 @@
     <title>0213_Note_cs61a</title>
     <link rel="stylesheet" href="css/baisc.css">
     <link rel="stylesheet" href="css/nextImportant.css">
+    <style>
+        textarea{
+            vertical-align: top;
+        }
+    </style>
 </head>
-<body>
+<body> 
+    <!-- 日期Start -->
     <h1>2023年2月13日开始</h1>
-    <ul><li><a href="https://inst.eecs.berkeley.edu/~cs61a/su18/hw/hw04/#q0-midsummer-survey">完成这个还有一个就完成scheme了</a></li>
-    <li><a href="https://github.com/woyue2/CS61A-/blob/master/Homeworks/hw04/hw04.scm">Answer</a></li>
-<li>打开本地的，scm文件，好好理解一下 car是tree[0] cdr 是tree[1]
-</li>
-<li><a href="0212_Note_cs61a.html"></a>复习看一下昨天的笔记，可以一边过work的时候一边看</li></ul>
-    <div class="main">
-        <h3>xxx</h3>
-        <!-- #region -->
+    <!-- 日期End -->
+    <!-- 右上角Index Start -->
+    <div class="index_itself">
         <ol>
-            <li></li>
+            <li><a href="#Scheme-Syntax Start">Scheme-Syntax Start</a></li>
         </ol>
-        <!-- #endregion -->
-        <h3>链接</h3>
-        <!-- #region -->
-        <ul>
-            <li></li>
-        </ul>
-        <!-- #endregion -->
+    </div>
+     <!-- 右上角Index End -->
+    <!-- 前情提要+复习Start -->
+    <div>
+    <ul>
+        <li><a href="https://inst.eecs.berkeley.edu/~cs61a/su18/assets/pdfs/guerrilla04.pdf">last_guerrilla-10pm</a></li> 
+        <hr>
+        <li><a href="https://inst.eecs.berkeley.edu/~cs61a/su18/hw/hw04/#q0-midsummer-survey">完成这个还有一个就完成scheme了</a></li>
+        <li><a href="https://github.com/woyue2/CS61A-/blob/master/Homeworks/hw04/hw04.scm">Answer</a></li>
+        <li>打开本地的，scm文件，好好理解一下 car是tree[0] cdr 是tree[1]，这是点对的概念
+        </li>
+        <li><a href="0212_Note_cs61a.html">复习看一下昨天的笔记，可以一边过work的时候一边看</a></li>
+        <li><a href="https://code.cs61a.org/">schemeOnline cs61a版本 有一些输出会正规一点，比上面的下载win版</a></li>  
+        <li><a href="https://wizardforcel.gitbooks.io/teach-yourself-scheme/content/020-data-types.html">Scheme 语言简明教程</a></li>
+    </ul>
+    </div>
+    <!-- 前情提要+复习End -->  
+<div class="main">
+    <!-- Syntax Start -->
+    <hr>
+    <div>
+        <h3 id="Scheme-Syntax Start">Scheme-Syntax Start</h3>
+        <ol>
+            <li><h4>scheme不同版本的输出可能有出入，cs61a网版用不了char?,不识别symbol大小写是正常的，而本地版却区分eqv? 'C 'c</h4></li>
+            <li>
+                <textarea name="" id="" cols="14" rows="3">scm> nil&#10;()</textarea>
+                <textarea name="" id="" cols="15" rows="3">scm> (null? nil)&#13;#t</textarea>
+                <textarea name="" id="" cols="15" rows="3">(char? #\c)&#10;#t
+                </textarea>                
+                <textarea name="" id="" cols="20" rows="5">scm> (not '1)&#13;#f&#13;;这里是很奇怪的地方&#13;scm> (boolean? 1)&#13;#f</textarea>                
+                <textarea name="" id="" cols="15" rows="3"></textarea>                
+            </li>
+            <li>
+                <div>
+                    <img src="images/QQ截图20230213163052.png" alt="">
+                    <img src="images/QQ截图20230213172158.png" alt=""><br>
+                    <textarea name="" id="" cols="15" rows="7">(pair? '(1 2))&#13;#t&#13;(pair? '(1 . 2))&#13;#t&#13;(pair? '())&#13;#f</textarea>
+                    <textarea name="" id="" cols="15" rows="7">(list? '(1 2))&#13;#t&#13;(list? '(1 . 2))&#13;#f&#13;(list? '())&#13;#t&#13;</textarea>
+                    <textarea name="" id="" cols="15" rows="7"></textarea>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="images/QQ截图20230213160613.png" alt="">
+                    <textarea name="" id="" cols="60" rows="10">
+(define (cddr s)
+    (cdr (cdr s)));s[1:][1:]
+
+(define (cadr s)
+    (car (cdr s));s[1:][0]
+  )
+  
+(define (caddr s)
+    (car (cdr (cdr s)));s[1:][1:][0]
+  )</textarea><img src="images/QQ截图20230213160933.png" alt="">
+                </div>
+            </li>
+            <li>
+                <div><h4>cons的用法--construct</h4>
+                    <textarea name="" id="" cols="40" rows="5">scm>  (cons '(1) (cons '(2) nil))&#13;((1) (2))&#13;;不能省略最后的nil还有'</textarea>
+                    <p>(cons <"symbol1"> <"symbol2">) 只能有两个参数</p>
+                </div>
+            </li>
+            <li>
+                <p>2.2.3 Dotted pairs(点对) 和 lists(列表)<br>
+                点对是将两个任意数值组合成有序数偶的复合类型。点对的第一个数值被称作car，第二值被称作cdr，而将两个值组合成点值对的过程是cons。
+                
+                </p>
+                <img src="images/QQ截图20230213164245.png" alt="">
+                <img src="images/QQ截图20230213164308.png" alt="">
+                <img src="images/QQ截图20230213165140.png" alt="">
+            </li>
+            <li><p>本质上还是两两之间有.的，只是省略了而已</p>
+                <img src="images/QQ截图20230213201938.png" alt="">
+                <p>现有pair后有list,pair是一起放进去，只有2个坑，list是永远都是2个坑，1个放当前，1个是空坑，给后面不断嵌套</p>
+                <a href="mhtml/Scheme中表(list)和序对(pair)的差别 - 应无所住而生其心 - 博客园.mhtml">Scheme中表(list)和序对(pair)的差别</a>
+                <p> car 和 cdr 分别是寄存器地址部分（Contents of the Address part of the Register）和寄存器减量部分（Contents of the Decrement part of the Register）的简称</p>
+            </li>
+        </ol>
+        <h3>Scheme-Syntax End</h3>
+        <hr>
+    </div>
+    <!-- Syntax End -->
+
         <h3>一些语句，看了知道，不看死想也想不到</h3>
         <!-- #region -->
         <ul>

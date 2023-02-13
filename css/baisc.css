@@ -12,6 +12,9 @@ img{
     border: 1px solid white;
     vertical-align: top;
 }
+textarea{
+    vertical-align: top;
+}
 h4::before{
     content: "<";
     color: yellow;
@@ -20,8 +23,17 @@ h4::after{
     content: ">";
     color: yellow;
 }
+h3::before{
+    content: '分P标题：';
+    color: aquamarine;
+}
 div::before{
     content: "";
     display: block;
     margin-top: 1em;
+}
+.index_itself{
+    position: fixed;
+    right: 20px;
+    top: 10px;
 }
