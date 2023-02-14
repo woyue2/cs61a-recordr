@@ -62,7 +62,7 @@
                 (add-to-all (car lst) recur);add-to-all item lst
             );body End
         )
-        ;True 时候执行 End
+        ;True 时候执行 End False是[]所以omit了
     )
 )
 ;Question 6: Sublists ENd 我是抄的额，我不会啊
@@ -142,6 +142,7 @@
     )
 )
 ;MyShitCode End
+;Reference Answer Start
  (define (replace-x lst x y)
     (cond 
         ((null? lst) 
@@ -155,5 +156,6 @@
         )
     )
 )
+;Reference Answer End
 ;不创建新list版，mutate original list End
 ;Question 8: Replace X End
