@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0214_Note_cs61a</title>
+    <link rel="stylesheet" href="css/baisc.css">
+    <link rel="stylesheet" href="css/nextImportant.css">
+</head>
+<style></style>
+<body>
+    <!-- 日期顶部Start -->
+    <h1>2023年2月14日开始</h1>
+    <!-- 日期顶部End -->
+    <!-- 右上角Index Start -->
+    <div class="index_itself">
+        <ol>
+            <li><a href="#Syntax">Scheme-Syntax Start</a>
+                <ul>
+                    <li><a href="#let">let局部变量</a></li>
+                    <li><a href="#or_and">or和and</a></li>
+                    <li><a href="#append">append</a></li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+     <!-- 右上角Index End -->
+     <!-- 前情提要+复习Start -->
+    <div>
+        <ul>
+            <p>NextStep/PreviousNextStep</p>
+            <li><a href="Language_Part/guerrilla04.pdf">guerrilla04</a></li>
+        </ul>
+    </div>
+     <!-- 前情提要+复习End -->
+     <!-- 笔记内容Start -->
+     <div class="main">
+        <!-- Syntax Start -->
+        <hr><div >
+            <h3 id="Syntax">Syntax Start</h3>
+                <div>
+                    <ul>
+                        <li><img src="images/QQ截图20230214114617.png" alt=""></li>
+                        <li><img src="images/QQ截图20230214120016.png" alt=""></li>
+                        <li><img src="images/QQ截图20230214120206.png" alt=""></li>
+                        <li>
+                            <h4>连在一起（无括号）和有括号的实现</h4>
+                            <img src="images/QQ截图20230214122518.png" alt="">
+                            <h4>去到整个，只需指向address</h4>
+                            <img src="images/QQ截图20230214122618.png" alt="">
+                            <p>忽然理解什么是address了，就是箭头指向的</p>
+                        </li>
+                        <li>
+                            <h4 id="append">append</h4>
+                            <img src="images/QQ截图20230214142714.png" alt="">
+                        </li>
+                        <h4>append和cons的区别，cons建立在pair上，每一个都是pair，append第一个参数一定是数字list</h4>
+                            <textarea name="" id="" cols="30" rows="20">scm> (cons '(1) '(2 3))
+                                ((1) 2 3)
+                                scm> (append '(1) '(2 3))
+                                (1 2 3)
+                                scm> (cons '(1 2) '(3))
+                                ((1 2) 3)
+                                scm> (cons '1 '(2 3))
+                                (1 2 3)
+                                scm> (append '((1)) '((2)))
+                                ((1) (2))</textarea>
+
+                        </li>
+                        <li><h4 id="let">let Syntax</h4>
+                            <textarea name="" id="" cols="30" rows="15">(let (
+                                &nbsp;(variable1 value1)
+                                &nbsp;(variable2 value2)
+                                &nbsp;...
+                                &nbsp;(variableN valueN)&#13; &nbsp; &nbsp;)
+                                &nbsp;body&#13;)
+                          </textarea>
+                          <img src="images/QQ截图20230214155529.png" alt=""></li>
+                        <li>
+                          <p>Scheme-debug-tools-DrRacket</p>
+                          <img src="images/QQ截图20230214173336.png" alt="">
+                        </li>
+                        <li>
+                            <p id="or_and">or和and</p>
+                            <p>这种是没有将输出给一个symbol的，是直接给值</p>
+                            <img src="images/QQ截图20230214181014.png" alt="">
+                        </li>
+                    </ul>
+                </div>
+            <h3>Syntax End</h3>
+        </div><hr>
+        <!-- Syntax End -->
+        <!--  -->
+        <hr><div >
+            <h3 id="xxx">xxx</h3>
+                <div>
+
+                </div>
+            <h3>Syntax End</h3>
+        </div><hr>
+        
+     </div>
+      <!-- 笔记内容End -->
+    <!-- 日期底部Start -->
+    <h1>2023年2月14日开始</h1>
+    <!-- 日期底部End -->
+</body>
+</html>

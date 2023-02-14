@@ -37,3 +37,6 @@ div::before{
     right: 20px;
     top: 10px;
 }
+textarea{
+    vertical-align: top;
+}
