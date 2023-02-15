@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0215_Note_cs61a</title>
+    <link rel="stylesheet" href="css/baisc.css">
+    <link rel="stylesheet" href="css/nextImportant.css">
+    <link rel="stylesheet" href="css/pygment.css">
+    <style>
+        .some{
+            background-color: rgba(255, 215, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- 日期顶部Start -->
+    <h1>2023年2月15日开始</h1>
+    <!-- 日期顶部End -->
+    <!-- 右上角Index Start -->
+    <div class="index_itself">
+        <ol>
+            <li><a href="#Syntax">Scheme-Syntax Start</a>
+                <ul>
+                    <li><a href="#begin">begin</a></li>
+                </ul>
+            </li>
+            <li><a href="#OrientedObjectProgram">OrientedObjectProgram</a>
+
+            </li>
+        </ol>
+    </div>
+     <!-- 右上角Index End -->
+     <!-- 前情提要+复习Start -->
+    <div>
+        <ul style="display: block;">
+            <p>NextStep/PreviousNextStep</p>
+            <li>下午4点开始伯里克利注册，听说还可以发邮件？申请autograde?
+                <a href="https://myapp.berkeley.edu/apply/?">伯里克利注册</a>
+                <a href="https://mail.163.com/js6/main.jsp?sid=fAIMfqKPLYfCjKbELGPPhjzvVVOSFHXD&df=mail163_letter#module=read.ReadModule%7C%7B%22area%22%3A%22normal%22%2C%22isThread%22%3Afalse%2C%22viewType%22%3A%22%22%2C%22id%22%3A%2267%3A1tbiQwoXbVc7dRswiwAAsK%22%2C%22fid%22%3A1%7D">账号信息BerkelyMailRegisterInfo</a>
+                <p>回去建立一个新号全部填真实信息继续申请把，问问我的朋友让他们帮付，给够199当请喝东西</p>
+            </li>
+            <div style="float:left">
+            <h2>Language_Part</h2>
+            <li><a href="https://www.cs.cmu.edu/Groups/AI/html/r4rs/r4rs_6.html#SEC32">语法schemeCMU</a></li>
+            </div>
+            <hr>
+            <div style="float:left">
+            <h2>Oriented-Program</h2>
+            <li><a href="https://inst.eecs.berkeley.edu/~cs61a/su18/lab/lab08/">直接做lab，有summary，我java也接触过Oriented-ojectedProgram，那个pptreader的Lecture去死把</a></li>
+            <li><a href="https://inst.eecs.berkeley.edu/~cs61a/su18/lab/lab08/#wwpd">这里继续做，已经看完了上面的内容+textbook的2.5</a></li>
+        </div>
+        <br>    
+        </ul>
+    </div>
+     <!-- 前情提要+复习End -->
+     <!-- 笔记内容Start -->
+     <div class="main">
+        <!-- Syntax Start -->
+        <hr><div >
+            <h3 id="Syntax">Syntax Start</h3>
+                <div>
+                    <ul>
+                        <li>
+                            <h4 id="begin">begin</h4>
+                            <img src="images/QQ截图20230215113347.png" alt="">
+                            <img src="images/QQ截图20230215113730.png" alt="">
+                        </li>
+                    </ul>
+                    
+                </div>
+            <h3>Syntax End</h3>
+        </div><hr>
+        <!-- Syntax End -->
+        <!--  -->
+        <hr><div >
+            <h3 id="OrientedObjectProgram">OrientedObjectProgram Start</h3>
+                <div>
+                    <ul>
+                        <li>
+                            <p>Methods are functions that are specific to a class.</p>
+                            <p>Every object also has a type, called its class.</p>
+                            <p>To create new types of data, we implement new classes.</p>
+                            <p>Class names are conventionally written using the CapWords convention (also called CamelCase because the capital letters in the middle of a name look like humps).
+                                <br>Method names follow the standard convention of naming functions using lowercased words separated by underscores.
+                            </p>
+                            
+                    </li>
+                    <li>
+                        <div>
+                            <p>The built-in function <span class="some">getattr</span> also returns an attribute for an object by name.</p>
+                            <p>We can also test whether an object has a named attribute with <span class="some">hasattr</span>.</p>
+                            <textarea name="" id="" cols="30" rows="2">command(《instance》 《str of attribute》</textarea>
+                        </div>
+                    </li>
+                    <li>
+                        <p>This attribute can still be accessed from any instance of the class.</p>
+                        <div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Account</span><span class="p">:</span>
+                            <span class="gp">&nbsp;&nbsp;&nbsp; </span>    <span class="n">interest</span> <span class="o">=</span> <span class="mf">0.02</span>            <span class="c1"># A class attribute</span>
+                            <span class="gp">&nbsp;&nbsp;&nbsp; </span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account_holder</span><span class="p">):</span>
+                            <span class="gp">&nbsp;&nbsp;&nbsp; </span>        <span class="bp">self</span><span class="o">.</span><span class="n">balance</span> <span class="o">=</span> <span class="mi">0</span>
+                            <span class="gp">&nbsp;&nbsp;&nbsp; </span>        <span class="bp">self</span><span class="o">.</span><span class="n">holder</span> <span class="o">=</span> <span class="n">account_holder</span>
+                            <span class="gp">&nbsp;&nbsp;&nbsp; </span>    <span class="c1"># Additional methods would be defined here</span>
+                            </pre></div>
+                            <p>全体访问</p>
+                            <pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">spock_account</span> <span class="o">=</span> <span class="n">Account</span><span class="p">(</span><span class="s1">'Spock'</span><span class="p">)</span>
+                                <span class="gp">&gt;&gt;&gt; </span><span class="n">kirk_account</span> <span class="o">=</span> <span class="n">Account</span><span class="p">(</span><span class="s1">'Kirk'</span><span class="p">)</span>
+                                <span class="gp">&gt;&gt;&gt; </span><span class="n">spock_account</span><span class="o">.</span><span class="n">interest</span>
+                                <span class="go">0.02</span>
+                                <span class="gp">&gt;&gt;&gt; </span><span class="n">kirk_account</span><span class="o">.</span><span class="n">interest</span>
+                                <span class="go">0.02</span>
+                                </pre>
+                            <p>一改全改</p>
+                            <pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Account</span><span class="o">.</span><span class="n">interest</span> <span class="o">=</span> <span class="mf">0.04</span>
+                                <span class="gp">&gt;&gt;&gt; </span><span class="n">spock_account</span><span class="o">.</span><span class="n">interest</span>
+                                <span class="go">0.04</span>
+                                <span class="gp">&gt;&gt;&gt; </span><span class="n">kirk_account</span><span class="o">.</span><span class="n">interest</span>
+                                <span class="go">0.04</span>
+                                </pre>
+                            
+                    </li>
+                    <li>
+                        <img src="images/QQ截图20230215165603.png" alt="">
+                    </li>
+                    </ul>
+                </div>
+            <h3>OrientedObjectProgram End</h3>
+        </div><hr>
+        
+     </div>
+      <!-- 笔记内容End -->
+    <!-- 日期底部Start -->
+    <h1>2023年2月15日结束</h1>
+    <!-- 日期底部End -->
+</body>
+</html>

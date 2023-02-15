@@ -149,13 +149,62 @@
             lst
         )
         ((eq? (car lst) x) 
-            (begin (set-car! lst y) (set-cdr! lst (replace-x (cdr lst) x y)) lst)
+            (begin 
+                (set-car! 
+                    lst 
+                    y
+                ) 
+                (set-cdr! 
+                    lst 
+                    (replace-x (cdr lst) x y)
+                ) 
+                lst
+            )
         )
         (else 
-            (begin (set-cdr! lst (replace-x (cdr lst) x y)) lst)
+            (begin 
+                (set-cdr! 
+                    lst 
+                    (replace-x (cdr lst) x y)
+                ) 
+                lst
+            )
         )
     )
 )
 ;Reference Answer End
 ;不创建新list版，mutate original list End
 ;Question 8: Replace X End
+
+;Q9 Question 9: Sequence in List Start
+;Require: Be in order, but not necessarily consecutive
+;My code Start有点Bug
+(define (seq-in-lst lst sub-lst)
+    (cond
+        ((null? (sub-lst))
+            #t
+        )
+        ((eqv? (car lst)(car sub-lst)) 
+            (seq-in-lst (cdr lst) (cdr sub-lst))
+        )
+        ((eqv? (car lst)(car (cdr sub-lst))) 
+            (seq-in-lst (cdr lst) (cdr (cdr sub-lst)))
+        )
+        ((eqv? (car (cdr lst))(car sub-lst)) 
+            (seq-in-lst (cdr (cdr lst)) (cdr sub-lst))
+        )
+        (else
+            #f
+        )
+    )
+);My code End有点Bug
+;Reference Anw Start
+(define (seq-in-lst lst sub-lst)
+    (cond ((null? sub-lst) #t)
+            ((null? lst) #f)
+            ((eq? (car lst) (car sub-lst)) ;因为是子集，所以一直从lst选，选不到就往后选，对sub-lst就可以了
+                (seq-in-lst (cdr lst) (cdr sub-lst))
+            )
+            (else (seq-in-lst (cdr lst) sub-lst))))
+;Reference Anw End
+;Q9 Question 9: Sequence in List End/
