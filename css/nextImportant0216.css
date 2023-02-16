@@ -1,0 +1,8 @@
+body::after{
+    content: '预告：3月1日有结果and看qq邮箱应该2月20+?';
+}
+body::before{
+    user-select: auto;
+    content : 'https://inst.eecs.berkeley.edu/~cs61a/su18--2月开始Data开始版本,加油,命格如此' ;
+    color: aliceblue;
+}

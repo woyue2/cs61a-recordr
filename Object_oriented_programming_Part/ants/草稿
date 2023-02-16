@@ -22,3 +22,100 @@ which adds one food to the colony during each turn, and the
 ThrowerAnt, 
 which throws a leaf at a bee each turn
 <!-- Ant 可选择类型 之 二 End-->
+
+<!-- Classes Start-->
+GameState: Represents the colony and some state information about the game, 
+including how much (food) is available, how much (time) has elapsed, 
+where the (AntHomeBase) is, and 
+all the (Places) in the game.
+#
+Place: Represents (a single place) that holds insects. 
+At most (one Ant) can be in a single place, 
+but there can be (many Bees) in a single place. 
+Place objects have an (exit) to the left and an (entrance) to the right, which (are also places). 
+(Bees) travel through a tunnel by (moving to a Place's exit).
+#
+Hive/AntHomeBase
+#
+Insect: A superclass for Ant and Bee. 
+All insects have (health attribute), representing their remaining health, 
+and (a place attribute), representing the Place where they are currently located.
+Each turn, every active Insect in the game performs its action.
+#
+Ant: Represents ants. Each Ant subclass 
+has (special attributes or a special action) that distinguish it from other Ant types. 
+For example, a (HarvesterAnt gets food) for the colony and a (ThrowerAnt attacks) Bees. 
+Each ant type also 
+has a (food_cost attribute) that indicates how much it costs to deploy one unit of that type of ant.
+#
+Bee: Represents bees. Each turn, a bee 
+either (moves to the exit) of its current Place if the Place (is not blocked) by an ant, 
+or (stings) the ant occupying its same Place.
+<!-- Classes End-->
+
+<!-- 00 Start -->
+<!-- the health attribute -->
+instance, each Ant instance needs its own health value
+It represents the amount of health the insect has left, so the   
+   insect is eliminated when it reaches 0
+<!-- damage -->
+1 a class attribute of the Insect class
+2 the damage attribute of an Ant subclass (such as ThrowerAnt) an instance or class attribute
+class, all Ants of the same subclass deal the same damage1
+<!-- Insect -->
+Ant and Bee inherit from it
+0) Ants and Bees both have the attributes 
+   health, damage, and place and the methods reduce_health and action
+<!-- Before Problem 8 -->
+There can be one Ant and many Bees in a single Place
+<!-- Bee -->
+The bee stings the ant in its place 
+or moves to the next place if there is no ant in its place
+<!-- 00 End -->
+
+<!-- 01 Start-->
+<!-- type of attribute is food_cost -->
+class, all Ants of the same subclass cost the same to place
+>>> Ant.food_cost
+? 0
+>>> HarvesterAnt.food_cost
+? 2
+>>> ThrowerAnt.food_cost
+? 3
+<!-- 01 End-->
+
+<!-- 02 Start -->
+Q: p is a Place whose entrance is q and exit is r (q and r are not None). 
+When is p.entrance first set to a non-None value?
+1) When q is constructed
+
+Q: p is a Place whose entrance is q and exit is r (q and r are not None). 
+When is p.exit first set to a non-None value?
+2) When p is constructed
+place0 = Place('place_0')
+>>> place0 = Place('place_0')
+>>> print(place0.exit)
+? None
+>>> place1 = Place('place_1', place0)
+>>> place1.exit is place0
+? true
+<!-- 02 End -->
+
+
+
+<!-- Phase1 -->
+class Father:<!-- constructor -->
+class Big(Father):<!-- constructor --> subClass也可以做Father
+
+    <!-- Phase2 -->
+    name = data <!-- 公用attribute -->
+    <!-- Phase3  -->
+    def __init__(<self>,[arg1],[arg2]):
+        <!-- not necessarily -->
+        [return xxx]
+    def (<self>,[arg1],[arg2]...):<!-- 父的func子的method -->
+        <!-- if arg is an instance(with value naturally)which means it must be a subclass -->
+        arg.value += 1
+        <!-- not necessarily -->
+        [return xxx]
+    def ……
