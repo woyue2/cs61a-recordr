@@ -1,0 +1,24 @@
+<!-- project grade command Start -->
+python3 ok -q [question number] -i 
+<!-- project grade command End -->
+
+
+<!-- 胜利或结束条件Start -->
+#我方为ant
+The game ends either 
+when a bee reaches the end of the tunnel (you lose), -->at least one bee reaches the end of a tunnel.
+the bees destroy the QueenAnt if it exists (you lose),--👆
+or the entire bee fleet has been vanquished (you win).
+<!-- 胜利或结束条件End -->
+
+<!-- Place Ant 条件Start -->
+The colony also has some quantity of food which can be expended in order to place an ant in a tunnel.
+<!-- Place Ant 条件End -->
+
+<!-- Ant 可选择类型 之 二 Start-->
+The two most basic ant types are the 
+HarvesterAnt, 
+which adds one food to the colony during each turn, and the 
+ThrowerAnt, 
+which throws a leaf at a bee each turn
+<!-- Ant 可选择类型 之 二 End-->
