@@ -13,6 +13,7 @@ class Place:
     """A Place holds insects and has an exit to another Place."""
     is_hive = False
 
+                        # str #instance
     def __init__(self, name, exit=None):
         """Create a Place with the given NAME and EXIT.
 
@@ -27,7 +28,7 @@ class Place:
         # Phase 1: Add an entrance to the exit
         # BEGIN Problem 2
         "*** YOUR CODE HERE ***"
-        if self.exit:
+        if self.exit:#如果真：
             exit.entrance = self
         # END Problem 2
         
@@ -53,8 +54,9 @@ class Insect:
     """An Insect, the base class of Ant and Bee, has health and a Place."""
 
     damage = 0
-    # ADD CLASS ATTRIBUTES HERE
 
+    # ADD CLASS ATTRIBUTES HERE
+                        # num    #str
     def __init__(self, health, place=None):
         """Create an Insect with a health amount and a starting PLACE."""
         self.health = health
@@ -191,7 +193,9 @@ class ThrowerAnt(Ant):
         This method returns None if there is no such Bee (or none in range).
         """
         # BEGIN Problem 3 and 4
-        return random_bee(self.place.bees)  # REPLACE THIS LINE
+        # return random_bee(self.place.bees)  # REPLACE THIS LINE
+        if self.place  
+        return  
         # END Problem 3 and 4
 
     def throw_at(self, target):

@@ -40,3 +40,6 @@ div::before{
 textarea{
     vertical-align: top;
 }
+a:hover{
+    color: aquamarine;
+}

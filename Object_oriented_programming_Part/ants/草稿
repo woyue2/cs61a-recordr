@@ -101,6 +101,20 @@ place0 = Place('place_0')
 ? true
 <!-- 02 End -->
 
+<!-- 03 Start -->
+2) The ThrowerAnt finds the nearest place including and (in front of its
+   own place) that has Bees and throws at a random Bee in that place
+Q: How do you( get the Place object )in front of another Place object?
+3) The place's entrance instance attribute
+Q: What is the entrance of the first Place in a tunnel (i.e. where do the bees enter from)?
+1) The Hive
+nearest_bee return None if no Bee in front of the ThrowerAnt
+
+nearest_bee.health 2
+>>> thrower.place is ant_place    # Don't change self.place!
+? True
+看那个pdf里面有全部表
+<!-- 03 End -->
 
 
 <!-- Phase1 -->
@@ -116,6 +130,15 @@ class Big(Father):<!-- constructor --> subClass也可以做Father
     def (<self>,[arg1],[arg2]...):<!-- 父的func子的method -->
         <!-- if arg is an instance(with value naturally)which means it must be a subclass -->
         arg.value += 1
-        <!-- not necessarily -->
+        <instance.attribute> = <value>+[instance.attribute]
+        <instance.attribute> = <instance.attribute>
+        <!-- use method -->
+        <instance>.<method([arg]...)>
+    <!-- give method -->
+    def method():
+        manipulate data
+        [return sth need to bu input]
+        
+       <!-- not necessarily -->
         [return xxx]
-    def ……
+    def …… 
