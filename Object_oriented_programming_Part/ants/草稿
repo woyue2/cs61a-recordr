@@ -132,6 +132,7 @@ class Big(Father):<!-- constructor --> subClass也可以做Father
         arg.value += 1
         <instance.attribute> = <value>+[instance.attribute]
         <instance.attribute> = <instance.attribute>
+        attribute = <instance.attribute>
         <!-- use method -->
         <instance>.<method([arg]...)>
     <!-- give method -->

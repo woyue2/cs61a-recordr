@@ -28,7 +28,7 @@ class Place:
         # Phase 1: Add an entrance to the exit
         # BEGIN Problem 2
         "*** YOUR CODE HERE ***"
-        if self.exit:#如果真：
+        if self.exit:  # 如果真：
             exit.entrance = self
         # END Problem 2
         
@@ -163,7 +163,7 @@ class HarvesterAnt(Ant):
     implemented = True
     # OVERRIDE CLASS ATTRIBUTES HERE
     food_cost = 2
-    health = 1
+    # health = 1 这里也是，不是你创建的
 
     def action(self, gamestate):
         """Produce 1 additional food for the colony.
@@ -182,8 +182,10 @@ class ThrowerAnt(Ant):
     name = 'Thrower'
     implemented = True
     damage = 1
+    lower_bound = -float('inf')
+    upper_bound = float('inf')
     food_cost = 3
-    health = 1
+    # health = 1 health不是你创建的，是Insect.health，父类的时候创建的，不是你决定的
     # ADD/OVERRIDE CLASS ATTRIBUTES HERE
 
     def nearest_bee(self):
@@ -194,8 +196,15 @@ class ThrowerAnt(Ant):
         """
         # BEGIN Problem 3 and 4
         # return random_bee(self.place.bees)  # REPLACE THIS LINE
-        if self.place  
-        return  
+        # 我抄的，完全不会做；死磕也没有用，抄了，把答案消化了，就这样把
+        place = self.place
+        counter = 0
+        while (not place.is_hive): 
+            if (len(place.bees) > 0 and (self.lower_bound <= counter <= self.upper_bound)):
+                return random_bee(place.bees)
+            counter += 1  # 应该是前进一步？
+            place = place.entrance  # 前进一步，所以就换位到了entrance 对于Ant来说，是前进，是右边
+        return  None
         # END Problem 3 and 4
 
     def throw_at(self, target):
