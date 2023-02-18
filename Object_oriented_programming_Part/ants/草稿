@@ -116,6 +116,11 @@ nearest_bee.health 2
 看那个pdf里面有全部表
 <!-- 03 End -->
 
+<!-- 04 Start -->
+what Bee should ThrowerAnts throw at?
+2) The closest Bee in front of it within range
+<!-- 04 End -->
+
 
 <!-- Phase1 -->
 class Father:<!-- constructor -->
@@ -131,7 +136,7 @@ class Big(Father):<!-- constructor --> subClass也可以做Father
         <!-- if arg is an instance(with value naturally)which means it must be a subclass -->
         arg.value += 1
         <instance.attribute> = <value>+[instance.attribute]
-        <instance.attribute> = <instance.attribute>
+        <instance.attribute> = <instance.attribute>/<instance>
         attribute = <instance.attribute>
         <!-- use method -->
         <instance>.<method([arg]...)>
