@@ -120,7 +120,39 @@ nearest_bee.health 2
 what Bee should ThrowerAnts throw at?
 2) The closest Bee in front of it within range
 <!-- 04 End -->
+<!-- 05Start -->
+By accessing the place instance attribute, which is a Place object
+2) By accessing the place instance attribute, which is a Place object(ant)
+3) By accessing the bees instance attribute, which is a list of Bee(bee)
+   objects
+iterate over a list while mutating it?
+1) Yes, but you should iterate over a copy of the list to avoid skipping
+   elements
+>>> place.add_insect(Bee(3))      # Add a Bee with 3 health
+>>> place.add_insect(Bee(5))      # Add a Bee with 5 health
+>>> len(place.bees)               # How many bees are there?
+? 2
+>>> place.add_insect(ant)      # Add a FireAnt to place
+>>> ant.place is place
+? True
+>>> place.remove_insect(ant)   # Remove FireAnt from place
+>>> ant.place is place         # Is the ant's place still that place?
+? False
+<!-- 05End -->
+<!-- 07 Start -->
+eat which bee
+2) A random Bee in the same place as itself
+<!-- 07 End -->
 
+<!-- 08Start -->
+ContainerAnt class
+Ant class
+BodyguardAnt class.
+Where is the ant contained
+2) In the BodyguardAnt's ant_contained instance attribute
+containe and be contained which is store in place's ant instance attribute?
+2) The Container Ant
+<!-- 08End -->
 
 <!-- Phase1 -->
 class Father:<!-- constructor -->
