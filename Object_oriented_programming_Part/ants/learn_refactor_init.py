@@ -12,22 +12,28 @@ class Sonson(Son):
         Son.__init__(self,money)
         print(f'well,it comes to the third layer')
         print('')
-        Father.__init__(self,money)
+        Father.__init__(self,money+1)
         print(f'can it work?')#YES!
-
+        print('PhaseEnd')
 """Call"""
-# print('1')
-# Baba = Father(100)
+print('1')
+Baba = Father(100)
 # print("2")
-# Erzi = Son(10)
-# print('3')
-# Sunzi = Sonson(1)
+Erzi = Son(10)#这样调用才是正确的
+# Erzi = Son.__init__(Erzi,10)# 这样调用是错误的，可以用Class.__init__来改写如lambda self,attr : xx 但是不能call directly
+print('3')
+Sunzi = Sonson(1)
 # print('')
-# Erzi = Son.__init__(10,10)
+
 """method"""
 # print(Father.__init__)
 # print(Son.__init__)
 # print(Sonson.__init__)
 
-Father.__init__ = lambda self, money: print(">??????")
-Baba = Father(100)
+# Father.__init__ = lambda self, money: print(">??????")
+# Baba = Father(100)
+
+type(Baba)
+print("type(Baba)", type(Baba))
+print("type(Erzi)", type(Erzi))
+print("type(Sunzi)", type(Sunzi))

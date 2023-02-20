@@ -43,3 +43,10 @@ textarea{
 a:hover{
     color: aquamarine;
 }
+span{
+    display: inline-block;
+    margin-left: 2px;
+    margin-right: 2px;
+    color: yellow;
+    background-color: black;
+}

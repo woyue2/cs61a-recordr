@@ -153,7 +153,13 @@ Where is the ant contained
 containe and be contained which is store in place's ant instance attribute?
 2) The Container Ant
 <!-- 08End -->
-
+<!-- 12 Start -->
+蚁后
+3) Attacks the nearest bee and doubles the damage of all the ants
+   behind her (that haven't already been doubled)
+输了
+2) If a Bee reaches the end of a tunnel or the true QueenAnt dies
+<!-- 12 End -->
 <!-- Phase1 -->
 class Father:<!-- constructor -->
 class Big(Father):<!-- constructor --> subClass也可以做Father
