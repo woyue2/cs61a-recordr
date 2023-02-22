@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0222_Note_cs61a</title>
+    <link rel="stylesheet" href="css/baisc.css">
+    <link rel="stylesheet" href="css/nextImportant0216.css">
+</head>
+<body>
+    <!-- 前一天 Start -->
+    <H4 style="position: fixed;top:1px;left: 50%;"><a href="0221_Note_cs61a.htm5">前一天的努力</a></H4>
+    <!-- 前一天 End -->
+    <!-- 日期顶部Start -->
+    <h1>2023年2月22日开始</h1>
+    <!-- 日期顶部End -->
+    <!-- 右上角Index Start -->
+    <div class="index_itself">
+        <ol>
+            <li><a href="#Syntax">Scheme-Syntax Start</a></li>
+        </ol>
+    </div>
+     <!-- 右上角Index End -->
+     <!-- 前情提要+复习Start -->
+    <div>
+        <ul>
+            <p>NextStep/PreviousNextStep</p>
+            <li><a href="https://www.youtube.com/watch?v=zHXwCnt_GnU&list=PLwDQt7s1o9J56gIGTA_3Eg9DeWf8nWeqH&index=112">5分钟那里继续youtubew</a></li>
+        </ul>
+    </div>
+     <!-- 前情提要+复习End -->
+     <!-- 笔记内容Start -->
+     <div class="main">
+        <!-- Syntax Start -->
+        <hr><div >
+            <h3 id="Syntax">Syntax Start</h3>
+                <div>
+                    dict是update,list是extend,dict不能相加,list可以
+                </div>
+            <h3>Syntax End</h3>
+        </div><hr>
+        <!-- Syntax End -->
+        <!--  -->
+        <hr><div >
+            <h3 id="xxx">xxx</h3>
+                <div>
+                    <H4>dict遍历的四种</H4>
+                    for key in dict: <br>
+                    for value in dict.values():<br>
+                    for key in dict.keys():<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print(key,dict[key])# dict[key] = value<br>
+                    for item in dict.items():<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print(item[0],item[1])/item[0]是key<br>
+                    <h4>字典推导式</h4>
+                    dict = {a:1,b:2} <br>
+                    dict2 = {} <br>
+                    for key,value in dict.<span>items()</span>: <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;dict2[value] = key # exchange roles of value and key <br>
+                    ####could_be_written_like_below#### <br>
+                    dict2 = {v:k for k,v in dict.<span>items()</span>}  <br>
+                    所以那个list推导式就是<br>
+                    list2 = [ele for ele in list] <br>
+                    <h4>集合set_介绍</h4>
+                    空集合set(),空字典是{}，尽管写也是表示{ele,ele}--特点，无键值对，且ele不重复，无序
+                    <br>每次输出，内部元素都可以换位置<br>
+                    <span>set.add(iterable)</span>iterable所以list,tuple都可以--增
+                    <span>set.pop()</span>随机弹出一个ele；<span>set.remove(指定ele)指定删除</span>--删
+                    <br>改=删+增，无查，无下标，都是增删改查的排课顺序 <br>
+                    <h4>& | - ^ of set</h4>
+                    &是并集,|是交集,^是差集的并集,  <br>  -是差集<br>
+                    差集 A - B 就是A - (A & B), B -A 就是 B - B&A <br>
+                    不能相加 无 +运算
+                    <hr>
+                    set可以用来去重,如list含有重复元素,<span>set1 = set(list)</span>去重<br>
+                    set不好用，list方便-->lst = list(set1) <br>
+                    排序 <span>list.sort(reverse=True或False)</span>倒序=真或假，完成排序<br>
+                    <h4>json</h4>
+                    import json <br>
+                    command = json.dump('command')----- python命令----转换为json命令<br>
+                    json.loads(command) -----还原为python命令执行<br>
+                    --------------- <br>
+                    eval('command') ---------python同上效果的命令 <br>
+                    转了json命令是为了前后端沟通，后端可能是c,java，都可以转为json,通用，复用性 <br>
+                </div>
+            <h3>Syntax End</h3>
+        </div><hr>
+        
+     </div>
+      <!-- 笔记内容End -->
+    <!-- 日期底部Start -->
+    <h1>2023年2月22日结束</h1>
+    <!-- 日期底部End -->
+    <!-- 后一天 Start -->
+    <H4 style="position: fixed;bottom:1px;left: 50%;"><a href="0223_Note_cs61a.html">后一天的努力</a></H4>
+    <!-- 后一天 End -->
+</body>
+</html>
