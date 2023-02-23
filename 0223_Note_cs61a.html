@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- 前一天 Start -->
-    <H4 style="position: fixed;top:1px;left: 50%;"><a href="0222_Note_cs61a.htm5">前一天的努力</a></H4>
+    <H4 style="position: fixed;top:1px;left: 50%;"><a href="0222_Note_cs61a.html">前一天的努力</a></H4>
     <!-- 前一天 End -->
     <!-- 日期顶部Start -->
     <h1>2023年2月23日开始</h1>
@@ -76,6 +76,40 @@
                     output的type是map类型 <br>
                     可以转List类型以方便使用<br>
                     map是直接处理，如这里判断，会输出boolean（转为List后) <br>
+                    <h4>闭包</h4>
+                    def out(): <br>
+                    &nbsp;&nbsp;x = 1     <br>
+                    &nbsp;&nbsp;def inner():<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;# x = 2是创建新的x 地址不同<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;##<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;# nonlocal x 这是修改前面的x，地址一样<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;# x = 2 <br>
+                    闭包没细说，大概就是这种嵌套内外函数 <br>
+                    <h4>import&nbsp;time</h4>
+                    &nbsp;&nbsp;<span> time.time()</span>----可以获取当下时间戳1970年1月1日0点UTC时间距今时间,UTC+8是东八区
+                    <br>在程序前后分别运行，做差，可计算出程序运行时间
+                    <h4>@decorator</h4>
+                    @docorator <br>
+                    def fun(arg):----->将fun变为out_fun(arg)的arg  <br>
+                    arg--------->变为inner_fun(arg)的arg <br>
+                    经装饰器装饰后,fun不再是原来的fun,而是inner_fun,（可以print(id(fun))看内存地址证明) <br>
+                    作用：开发时候，修改需求，不是再原来改代码，而是用装饰器写，这样如果有其他需要调用原部分的代码的其他东西就不需要重写 <br>
+                    虽然fun传进out_fun的arg，不过它的实际地址为inner_fun <br>记住就好 <br>
+                    <h4>import</h4>
+                    <ul>
+                        <li>import py</li>
+                        <li>import py as shortcut</li>
+                        <li>from py import *</li>
+                        <li>from py import def </li>
+                        <li>from py import def as shortcut</li>                     
+                    </ul>
+                    <h4>os/sys/datetime/calendar--- module</h4>
+                    用到再看就好了 <br>用calendar.calendar(2023)写了个日历哈哈<br>
+                    <h4>hashlib/hmac加密</h4>
+                    <a href="Object_oriented_programming_Part/补齐知识/Hmac和hashlib_加密_开发可能用用再说.py">Hmac和hashlib_加密_开发可能用用再说.py</a> <br>
+                    copy.deepcopy深复制，copy.copy()是shallowcopy,list只复制一层，而deepcopy全部层数都复制，地址 
+                    <h4>uuid</h4>
+                    uuid.uuid1或2或3或4或5,4在开发中最常用，可能重复，但概率极低，而1是全球唯一，不需要如此
                 </div>
             <h3>Syntax End</h3>
         </div><hr>
