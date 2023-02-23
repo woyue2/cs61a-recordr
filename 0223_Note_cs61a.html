@@ -48,7 +48,34 @@
         <hr><div >
             <h3 id="xxx">xxx</h3>
                 <div>
-
+                    <H4>input，以逗号分隔</H4>
+                    x = input('str_prompt') <br>
+                    i = x.split(',') <br>
+                    <h4>*args,**kwargs</h4>
+                    顺序：*args,default,**kwargs <br>
+                    *args: 1,2,3 any position 是任意个数的意思<br>
+                    **kwargs:a = 1 , b = 1 ----sum(**kwargs)就是这样call  <br>
+                    <h4>传参的（内存）地址问题</h4>
+                    如果是a，call_func(a)之后，a在函数内会创建一个新地址，global是本来的地址<br>
+                    而如果是list,func(list)之后，函数内部和global都指向的是同一个地址<br>
+                    用<span>id(arg)</span>可以输出地址的详细，以数字形式，好像是16位进制
+                    <h4>sort</h4>
+                    sorted(list) <br>
+                    dict.sort(key = lambda x:x['standard'])----x就是dict，这里只是匿名函数 <br>
+                    <h4>reduce</h4>
+                    from functools import reduce <br>
+                    <span>reduce(lambda a,b:a+b,obj[,a_original)可省最后一位</span>  <br>
+                    累加累除乘 <br>
+                    <h4>filter</h4>
+                    <span>filter(lambda a:a>17standard,obj)</span><br>
+                    output的type是filter类型 <br>
+                    可以转List类型以方便使用<br>
+                    <br>filter是筛选，会排除不符合条件的 <br>
+                    <h4>map</h4>
+                    <span>map(lambda a:a>17standard,obj)</span>
+                    output的type是map类型 <br>
+                    可以转List类型以方便使用<br>
+                    map是直接处理，如这里判断，会输出boolean（转为List后) <br>
                 </div>
             <h3>Syntax End</h3>
         </div><hr>
