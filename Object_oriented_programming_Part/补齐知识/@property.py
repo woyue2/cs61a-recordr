@@ -11,10 +11,11 @@ class Father(object):
     @email.setter
     def email(self, to_change):
         self.first, self.last = to_change.split(' ')
+
     @email.deleter
     def email(self):
         print('wrong')
-        self.first, self.last = None,None
+        self.first, self.last = None, None
 
 
 """create_obj"""
