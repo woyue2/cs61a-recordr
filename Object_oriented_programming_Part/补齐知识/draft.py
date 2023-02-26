@@ -1,27 +1,53 @@
-class Father(object):
-    def __init__(self, first, last):
-        self.first = first
-        self.last = last
-
-    @property
-    def email(self):
-        if self.first and self.last:
-            return '{}_{}@email.com'.format(self.first, self.last)
-
-    @email.setter
-    def email(self, to_change):
-        self.first, self.last = to_change.split(' ')
-    @email.deleter
-    def email(self):
-        print('wrong')
-        self.first, self.last = None,None
+class Instructor:
+    degree = "PhD (Magic)"  # this is a class attribute
 
 
-"""create_obj"""
+def __init__(self, name):
+    self.name = name  # this is an instance attribute
 
-obj = Father('stephen', 'du')
-print(obj.first, obj.last, obj.email)
-obj.email = 'justin boy'
-print(obj.first, obj.last, obj.email)
-del obj.email
-print(obj.first, obj.last, obj.email)
+
+def lecture(self, topic):
+    print("Today we're learning about " + topic)
+
+
+dumbledore = Instructor("Dumbledore")
+
+
+class Student:
+    instructor = dumbledore
+
+
+def __init__(self, name, ta):
+    self.name = name
+    self.understanding = 0
+    ta.add_student(self)
+
+
+def attend_lecture(self, topic):
+    Student.instructor.lecture(topic)
+
+    if Student.instructor == dumbledore:
+        print(Student.instructor.name + " is awesome!")
+    else:
+        print("I miss Dumbledore.")
+        self.understanding += 1
+
+
+def visit_office_hours(self, staff):
+    staff.assist(self)
+    print("Thanks, " + staff.name)
+
+
+class TeachingAssistant:
+
+    def __init__(self, name):
+        self.name = name
+        self.students = {}
+
+
+def add_student(self, student):
+    self.students[student.name] = student
+
+
+def assist(self, student):
+    student.understanding += 1
