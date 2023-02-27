@@ -1,0 +1,9 @@
+body::after{
+    content: '预告：3月11日高铁，这之前能学完cs61就去苏州，有时间再杭州，没有就一直学cs61a';
+}
+body::before{
+    user-select: auto;
+    content : 'https://inst.eecs.berkeley.edu/~cs61a/su18做完了去苏州做不完别去了\D\Ahttps://www.codewars.com/dashboard一天一题就可以了\D\A 3月11日高铁3月10日5点起床出发' ;
+    white-space: pre;
+    color: aliceblue;
+}

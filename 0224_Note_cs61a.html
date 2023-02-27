@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- 前一天 Start -->
-    <H4 style="position: fixed;top:1px;left: 50%;"><a href="0223_Note_cs61a.htm5">前一天的努力</a></H4>
+    <H4 style="position: fixed;top:1px;left: 50%;"><a href="0223_Note_cs61a.html">前一天的努力</a></H4>
     <!-- 前一天 End -->
     <!-- 日期顶部Start -->
     <h1>2023年2月24日开始</h1>
@@ -48,6 +48,39 @@
                     重写__add__,__mul__,__eq__,__nq__ <br>
                     分别对应 +    *       =     != <br>
                     python就是这么实现的<br>
+                    '----------------------------------------' <br>
+                    Class Xxxx: <br>
+                    &nbsp;&nbsp;def __init__(self,yy): <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;self.yy = yy<br>
+                    obj = Xxxx(yy)  <br>
+                    print(dir(obj)) #出现所有可以用的内置方法 <br>
+                    print(obj.__dict__)) #将对象attribute：value转换成字典<br>
+                    '----------------------------------------' <br>
+                    这个obj.__dict__可以用在更多的魔法方法里 <br>
+                    如__setitem__(self,key,value): <br>
+                    &nbsp;&nbsp;self.__dict__[key] = value <br>
+                    &nbsp;&nbsp;return self.__dict__[key]
+                    如__getitem__(self,key): <br>
+                    &nbsp;&nbsp;return self.__dict__[key] <br>
+                    <h4>__arg是私有变量</h4>
+                    私有变量调用公式: <br>
+                    <span>instance.class.__binaliang</span> <br>
+                    <a href="0220_Note_cs61a.html">单例模式/类方法、静态方法、实例方法复习</a> <br>
+                    <a href="https://www.pythontutorial.net/python-oop/python-__new__/#:~:text=The%20__new__%20%28%29%20is%20a%20static%20method%20of,want%20to%20tweak%20the%20object%20at%20creation%20time.">__new__是在__init之前的</a>
+                    <h4>mro</h4>
+                    method_resolution_order <br>
+                    <span>Class.mro</span>>>>会输出调用顺序 <br>
+                    <h4>装饰器和高级装饰器</h4>
+                    高级装饰器就是带参数的 <br>
+                    @decr(xxx) <br>
+                    不高级的就是 @dec() <br>
+                    高级的就是三层第一层就是自己decr(xxx)第二次传fn第三层传fn的arg <br>
+                    不高级的就是两层，没有自己的，第一层传fn,第二层传fn的arg <br>
+                    <h4>@property</h4>
+                    sematic就是将方法名当作属性,fun-->attribute <br>
+                    <a href="https://www.youtube.com/watch?v=jCzT9XFZ5bw">OOP</a> <br>
+                    <a href="Object_oriented_programming_Part/补齐知识/@property.py">@property.py</a>除了@property还有目标attr.setter或者deleter <br>
+                    调用用<span>instance.attr = ' '</span>来更新<span>set,del instance.attr</span>来调用删除设置 
                 </div>
             <h3>Syntax End</h3>
         </div><hr>
