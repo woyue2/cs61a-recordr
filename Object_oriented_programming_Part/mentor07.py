@@ -30,13 +30,13 @@ class TeamBaller(Baller):
     False
     """
     def pass_ball(self, other_player):
-        if self.has_ball == True:
+        # did_pass = Baller.pass_ball(self,other_player) 和下面语句等价
+        did_pass = super().pass_ball(other_player)
+        if did_pass:
             print('Yay!')
-            return True
         else:
             print('I don\'t have the ball')
-            return False
-        return
+        return did_pass
 mitas = BallHog('Mitas')
 cheerballer = TeamBaller('Chris', has_ball=True)
 print(cheerballer.pass_ball(mitas))
